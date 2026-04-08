@@ -49,8 +49,9 @@ Chapa: ${chapa}`;
     const url =
       `mailto:bielpostico@gmail.com?subject=Nueva compra&body=${encodeURIComponent(mensaje)}`;
 
-    window.location.href = url;
+    window.open(url, "_blank"); // ← ahora sí abre en nueva pestaña
 }
+
 </script>
 
 </body>
