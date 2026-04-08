@@ -74,7 +74,7 @@
         // Cargar XML al iniciar
         window.onload = async function () {
             try {
-                const res = await fetch('datos.xml');
+                const res = await fetch('datos.xml?cache=' + Date.now());
                 const xmlText = await res.text();
                 const xml = new DOMParser().parseFromString(xmlText, "application/xml");
 
