@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-08T17:26:43">
+<ComprasPorAlumno>
+<nombre>Nil Barbens</nombre>
+<Nombre_x0020_chapa>error</Nombre_x0020_chapa>
+<IDCompra>9</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Nil Barbens</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>6</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Mathieu Morales</nombre>
+<Nombre_x0020_chapa>pantalla</Nombre_x0020_chapa>
+<IDCompra>4</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Mathieu Morales</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>3</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Alex Valera</nombre>
+<Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
+<IDCompra>8</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Alex Valera</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>7</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Jordi Cano</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>10</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Joel Jimenez</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>12</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Joel Jimenez</nombre>
+<Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
+<IDCompra>11</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Eloi Vega</nombre>
+<Nombre_x0020_chapa>alternatiu</Nombre_x0020_chapa>
+<IDCompra>13</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Emma Badia</nombre>
+<Nombre_x0020_chapa>alternatiu</Nombre_x0020_chapa>
+<IDCompra>15</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Emma Badia</nombre>
+<Nombre_x0020_chapa>tortuga</Nombre_x0020_chapa>
+<IDCompra>14</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Andreu Parra</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>16</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Valery Anghaly</nombre>
+<Nombre_x0020_chapa>error</Nombre_x0020_chapa>
+<IDCompra>19</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Valery Anghaly</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>18</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Ariadna Pastrana</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>20</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Ariadna Pastrana</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>21</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Raquel Crespo</nombre>
+<Nombre_x0020_chapa>error</Nombre_x0020_chapa>
+<IDCompra>23</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Raquel Crespo</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>22</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Andres Birarelli</nombre>
+<Nombre_x0020_chapa>espasa</Nombre_x0020_chapa>
+<IDCompra>24</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Andres Birarelli</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>25</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Isabella Machado</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>26</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Diego Galisteo</nombre>
+<Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
+<IDCompra>27</IDCompra>
+</ComprasPorAlumno>
+</dataroot>
