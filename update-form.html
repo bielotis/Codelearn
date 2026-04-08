@@ -5,7 +5,7 @@
 <title>Enviar compra</title>
 <style>
 body { font-family: Arial; background:#1e1e2e; color:white; padding:40px; }
-input, select { width:100%; padding:10px; margin:10px 0; border-radius:8px; }
+input { width:100%; padding:10px; margin:10px 0; border-radius:8px; }
 button { padding:12px; background:#00c8ff; border:none; border-radius:8px; cursor:pointer; }
 .section { background:#2b2b3b; padding:20px; border-radius:12px; margin-bottom:30px; }
 </style>
@@ -15,44 +15,20 @@ button { padding:12px; background:#00c8ff; border:none; border-radius:8px; curso
 <h1>🛒 Enviar compra</h1>
 
 <div class="section">
-    <label>Nombre</label>
-    <input id="nombre" placeholder="Ej: Nil">
+    <form action="https://formspree.io/f/mreodvop" method="POST">
+        
+        <label>Nombre</label>
+        <input name="nombre" required>
 
-    <label>Apellidos</label>
-    <input id="apellidos" placeholder="Ej: Barbens">
+        <label>Apellidos</label>
+        <input name="apellidos" required>
 
-    <label>Chapa comprada</label>
-    <input id="chapa" placeholder="Ej: Robot">
+        <label>Chapa comprada</label>
+        <input name="chapa" required>
 
-    <button onclick="enviarEmail()">Enviar por correo</button>
-
-    <p id="msg"></p>
+        <button type="submit">Enviar</button>
+    </form>
 </div>
-
-<script>
-function enviarEmail() {
-    const nombre = document.getElementById("nombre").value.trim();
-    const apellidos = document.getElementById("apellidos").value.trim();
-    const chapa = document.getElementById("chapa").value.trim();
-
-    if (!nombre || !apellidos || !chapa) {
-        document.getElementById("msg").innerText = "Rellena todos los campos";
-        return;
-    }
-
-    const mensaje =
-`Nueva compra:
-Nombre: ${nombre}
-Apellidos: ${apellidos}
-Chapa: ${chapa}`;
-
-    const url =
-      `mailto:bielpostico@gmail.com?subject=Nueva compra&body=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, "_blank"); // ← ahora sí abre en nueva pestaña
-}
-
-</script>
 
 </body>
 </html>
