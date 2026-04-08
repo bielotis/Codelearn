@@ -24,7 +24,7 @@
             max-width: 500px;
         }
 
-        /* Selector con scroll y 5 elementos visibles */
+        /* SELECT NORMAL, PERO CON SCROLL EN EL MENÚ */
         select {
             width: 100%;
             padding: 12px;
@@ -33,10 +33,24 @@
             margin-bottom: 20px;
             font-size: 16px;
             box-sizing: border-box;
+            background: #fff;
+            color: #000;
         }
 
-        select[size] {
-            height: auto;
+        /* Esto controla el menú desplegable */
+        select option {
+            padding: 10px;
+        }
+
+        /* Algunos navegadores permiten limitar la altura del menú */
+        select {
+            max-height: 40px; /* altura del select cerrado */
+        }
+
+        /* Para navegadores modernos: menú con scroll */
+        select:focus option {
+            max-height: 150px;
+            overflow-y: auto;
         }
 
         .tarjeta {
@@ -65,8 +79,9 @@
     <div class="container">
         <h2>🏅 Chapas por Alumno</h2>
 
-        <!-- Selector con 5 elementos visibles -->
-        <select id="selectorAlumnos" size="5" onchange="mostrarChapas()">
+        <!-- SELECT NORMAL -->
+        <select id="selectorAlumnos" onchange="mostrarChapas()">
+            <option value="">Selecciona un alumno...</option>
         </select>
 
         <div id="lista"></div>
