@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Buscador de Chapas - CodeLearn</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+        .search-box { margin-bottom: 20px; }
+        input { padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc; }
+        .resultado { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>🔍 Buscador de Compras</h2>
+    <div class="search-box">
+        <input type="text" id="nombreInput" placeholder="Escribe el nombre del alumno..." onkeyup="buscar()">
+    </div>
+    <div id="listaResultados"></div>
+
+    <script>
+        async function buscar() {
+            const input = document.getElementById('nombreInput').value.toLowerCase();
+            const response = await fetch('datos.xml');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(text, "application/xml");
+            
+            const registros = xml.getElementsByTagName("Comunidades"); // Cambia por el nombre de tu tabla
+            let html = '';
+
+            for (let i = 0; i < registros.length; i++) {
+                // Suponiendo que tus columnas se llaman 'Alumno' y 'Chapa'
+                let nombre = registros[i].getElementsByTagName("Nombre")[0].textContent;
+                let chapa = registros[i].getElementsByTagName("Chapa")[0].textContent;
+
+                if (nombre.toLowerCase().includes(input) && input !== "") {
+                    html += `<div class="resultado"><b>${nombre}</b> compró la chapa: <span>${chapa}</span></div>`;
+                }
+            }
+            document.getElementById('listaResultados').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
