@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Gestión de Chapas</title>
+<title>Enviar compra</title>
 <style>
 body { font-family: Arial; background:#1e1e2e; color:white; padding:40px; }
-h2 { margin-top:40px; }
 input, select { width:100%; padding:10px; margin:10px 0; border-radius:8px; }
 button { padding:12px; background:#00c8ff; border:none; border-radius:8px; cursor:pointer; }
 .section { background:#2b2b3b; padding:20px; border-radius:12px; margin-bottom:30px; }
@@ -13,41 +12,46 @@ button { padding:12px; background:#00c8ff; border:none; border-radius:8px; curso
 </head>
 <body>
 
-<h1>⚙️ Gestión de Chapas</h1>
+<h1>🛒 Enviar compra</h1>
 
-<!-- CREAR USUARIO -->
 <div class="section">
-    <h2>➕ Crear nuevo usuario</h2>
-    <input id="nuevoUsuario" placeholder="Nombre del alumno">
-    <button onclick="crearUsuario()">Crear usuario</button>
-    <p id="msgUsuario"></p>
+    <label>Nombre</label>
+    <input id="nombre" placeholder="Ej: Nil">
+
+    <label>Apellidos</label>
+    <input id="apellidos" placeholder="Ej: Barbens">
+
+    <label>Chapa comprada</label>
+    <input id="chapa" placeholder="Ej: Robot">
+
+    <button onclick="enviarEmail()">Enviar por correo</button>
+
+    <p id="msg"></p>
 </div>
 
-<!-- CREAR CHAPA -->
-<div class="section">
-    <h2>🏅 Crear nueva chapa</h2>
-    <input id="nuevaChapa" placeholder="Nombre de la chapa">
-    <button onclick="crearChapa()">Crear chapa</button>
-    <p id="msgChapa"></p>
-</div>
+<script>
+function enviarEmail() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellidos = document.getElementById("apellidos").value.trim();
+    const chapa = document.getElementById("chapa").value.trim();
 
-<!-- AÑADIR COMPRA -->
-<div class="section">
-    <h2>🛒 Añadir compra</h2>
+    if (!nombre || !apellidos || !chapa) {
+        document.getElementById("msg").innerText = "Rellena todos los campos";
+        return;
+    }
 
-    <label>Alumno</label>
-    <input id="buscarAlumno" placeholder="Buscar alumno..." oninput="filtrarAlumnos()">
-    <select id="listaAlumnos"></select>
+    const mensaje =
+`Nueva compra:
+Nombre: ${nombre}
+Apellidos: ${apellidos}
+Chapa: ${chapa}`;
 
-    <label>Chapa</label>
-    <input id="buscarChapa" placeholder="Buscar chapa..." oninput="filtrarChapas()">
-    <select id="listaChapas"></select>
+    const url =
+      `mailto:bielpostico@gmail.com?subject=Nueva compra&body=${encodeURIComponent(mensaje)}`;
 
-    <button onclick="crearCompra()">Añadir compra</button>
-    <p id="msgCompra"></p>
-</div>
-
-<script src="form.js"></script>
+    window.location.href = url;
+}
+</script>
 
 </body>
 </html>
