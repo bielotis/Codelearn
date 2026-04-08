@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-08T17:56:08">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-08T18:14:59">
 <ComprasPorAlumno>
 <nombre>Nil Barbens</nombre>
 <Nombre_x0020_chapa>error</Nombre_x0020_chapa>
@@ -134,5 +134,15 @@
 <nombre>Hugo Cortes</nombre>
 <Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
 <IDCompra>31</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Lua Rojas</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>32</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Lua Rojas</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>33</IDCompra>
 </ComprasPorAlumno>
 </dataroot>
