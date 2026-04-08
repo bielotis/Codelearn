@@ -102,6 +102,15 @@
             color: #ffcc00;
             font-weight: bold;
         }
+        .resto-item {
+            background: #2d2d3d;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 0.9em;
+            border-left: 4px solid #555;
+}
+
     </style>
 </head>
 
@@ -124,108 +133,129 @@
         <!-- COLUMNA DERECHA -->
         <div class="col">
             <h2 class="top-title">🔥 Top 3 más vendidas</h2>
-            <div id="top3"></div>
-        </div>
+        <div id="top3"></div>
+
+            <h3 style="margin-top:25px; color:#ccc;">📦 Resto de chapas</h3>
+        <div id="resto"></div>
+    </div>
+
 
     </div>
 
     <script>
         let registrosXML = [];
 
-        window.onload = async function () {
-            try {
-                const res = await fetch('datos.xml?cache=' + Date.now());
-                const xmlText = await res.text();
-                const xml = new DOMParser().parseFromString(xmlText, "application/xml");
+// Cargar XML al iniciar
+window.onload = async function () {
+    try {
+        const res = await fetch('datos.xml?cache=' + Date.now());
+        const xmlText = await res.text();
+        const xml = new DOMParser().parseFromString(xmlText, "application/xml");
 
-                registrosXML = xml.getElementsByTagName("ComprasPorAlumno");
+        registrosXML = xml.getElementsByTagName("ComprasPorAlumno");
 
-                // --- LISTA DE ALUMNOS ---
-                let alumnos = new Set();
-                for (let i = 0; i < registrosXML.length; i++) {
-                    let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
-                    if (nombre) alumnos.add(nombre);
-                }
-
-                const listaOrdenada = [...alumnos].sort((a, b) => a.localeCompare(b));
-
-                const opciones = document.getElementById("listaAlumnos");
-                listaOrdenada.forEach(nombre => {
-                    opciones.innerHTML += `<div onclick="seleccionarAlumno('${nombre}')">${nombre}</div>`;
-                });
-
-                // --- TOP 3 CHAPAS ---
-                calcularTop3();
-
-            } catch (err) {
-                console.error("Error cargando el XML:", err);
-            }
-        };
-
-        // Abrir/cerrar menú
-        document.querySelector(".select-display").onclick = function () {
-            const menu = document.querySelector(".select-options");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        };
-
-        // Seleccionar alumno
-        function seleccionarAlumno(nombre) {
-            document.querySelector(".select-display").textContent = nombre;
-            document.querySelector(".select-options").style.display = "none";
-            mostrarChapas(nombre);
+        // --- LISTA DE ALUMNOS ---
+        let alumnos = new Set();
+        for (let i = 0; i < registrosXML.length; i++) {
+            let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
+            if (nombre) alumnos.add(nombre);
         }
 
-        // Mostrar chapas del alumno
-        function mostrarChapas(alumno) {
-            const lista = document.getElementById("lista");
-            lista.innerHTML = "";
+        const listaOrdenada = [...alumnos].sort((a, b) => a.localeCompare(b));
 
-            for (let i = 0; i < registrosXML.length; i++) {
-                let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
-                let chapa = registrosXML[i].getElementsByTagName("Nombre_x0020_chapa")[0]?.textContent;
-
-                if (nombre === alumno) {
-                    lista.innerHTML += `
-                        <div class="tarjeta">
-                            <div class="nombre">👤 ${nombre}</div>
-                            <div class="chapa">🏅 Chapa: ${chapa}</div>
-                        </div>`;
-                }
-            }
-        }
-
-        // Calcular TOP 3
-        function calcularTop3() {
-            let contador = {};
-
-            for (let i = 0; i < registrosXML.length; i++) {
-                let chapa = registrosXML[i].getElementsByTagName("Nombre_x0020_chapa")[0]?.textContent;
-                if (!contador[chapa]) contador[chapa] = 0;
-                contador[chapa]++;
-            }
-
-            let top = Object.entries(contador)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 3);
-
-            const topDiv = document.getElementById("top3");
-            topDiv.innerHTML = "";
-
-            top.forEach(([chapa, cantidad], i) => {
-                topDiv.innerHTML += `
-                    <div class="top-item">
-                        <div><strong>${i + 1}. ${chapa}</strong></div>
-                        <div>Ventas: ${cantidad}</div>
-                    </div>`;
-            });
-        }
-
-        // Cerrar menú si haces clic fuera
-        document.addEventListener("click", function(e) {
-            if (!document.querySelector(".select-wrapper").contains(e.target)) {
-                document.querySelector(".select-options").style.display = "none";
-            }
+        const opciones = document.getElementById("listaAlumnos");
+        listaOrdenada.forEach(nombre => {
+            opciones.innerHTML += `<div onclick="seleccionarAlumno('${nombre}')">${nombre}</div>`;
         });
+
+        // --- TOP 3 + RESTO ---
+        calcularTop3();
+
+    } catch (err) {
+        console.error("Error cargando el XML:", err);
+    }
+};
+
+// Abrir/cerrar menú
+document.querySelector(".select-display").onclick = function () {
+    const menu = document.querySelector(".select-options");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+};
+
+// Seleccionar alumno
+function seleccionarAlumno(nombre) {
+    document.querySelector(".select-display").textContent = nombre;
+    document.querySelector(".select-options").style.display = "none";
+    mostrarChapas(nombre);
+}
+
+// Mostrar chapas del alumno
+function mostrarChapas(alumno) {
+    const lista = document.getElementById("lista");
+    lista.innerHTML = "";
+
+    for (let i = 0; i < registrosXML.length; i++) {
+        let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
+        let chapa = registrosXML[i].getElementsByTagName("Nombre_x0020_chapa")[0]?.textContent;
+
+        if (nombre === alumno) {
+            lista.innerHTML += `
+                <div class="tarjeta">
+                    <div class="nombre">👤 ${nombre}</div>
+                    <div class="chapa">🏅 Chapa: ${chapa}</div>
+                </div>`;
+        }
+    }
+}
+
+// Calcular TOP 3 + resto
+function calcularTop3() {
+    let contador = {};
+
+    // Contar ventas por chapa
+    for (let i = 0; i < registrosXML.length; i++) {
+        let chapa = registrosXML[i].getElementsByTagName("Nombre_x0020_chapa")[0]?.textContent;
+        if (!contador[chapa]) contador[chapa] = 0;
+        contador[chapa]++;
+    }
+
+    // Ordenar por ventas
+    let ordenado = Object.entries(contador)
+        .sort((a, b) => b[1] - a[1]);
+
+    // Top 3
+    let top = ordenado.slice(0, 3);
+
+    const topDiv = document.getElementById("top3");
+    topDiv.innerHTML = "";
+
+    top.forEach(([chapa, cantidad], i) => {
+        topDiv.innerHTML += `
+            <div class="top-item">
+                <div><strong>${i + 1}. ${chapa}</strong></div>
+                <div>Ventas: ${cantidad}</div>
+            </div>`;
+    });
+
+    // Resto de chapas
+    const restoDiv = document.getElementById("resto");
+    restoDiv.innerHTML = "";
+
+    ordenado.slice(3).forEach(([chapa, cantidad]) => {
+        restoDiv.innerHTML += `
+            <div class="resto-item">
+                ${chapa} — ${cantidad} ventas
+            </div>`;
+    });
+}
+
+// Cerrar menú si haces clic fuera
+document.addEventListener("click", function(e) {
+    if (!document.querySelector(".select-wrapper").contains(e.target)) {
+        document.querySelector(".select-options").style.display = "none";
+    }
+});
+
     </script>
 
 </body>
