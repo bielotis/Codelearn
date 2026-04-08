@@ -47,44 +47,43 @@ function filtrarChapas() {
     rellenarSelect("listaChapas", filtrado);
 }
 
-// --- ENVIAR ISSUE ---
-async function enviarIssue(titulo, cuerpo) {
-    const issue = { title: titulo, body: cuerpo };
+// --- ABRIR ISSUE EN GITHUB ---
+function enviarIssue(titulo, cuerpo) {
+    const url =
+      `https://github.com/${USER}/${REPO}/issues/new?title=` +
+      encodeURIComponent(titulo) +
+      `&body=` +
+      encodeURIComponent(cuerpo);
 
-    const res = await fetch(`https://api.github.com/repos/${USER}/${REPO}/issues`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(issue)
-    });
-
-    return res.ok;
+    window.open(url, "_blank");
+    return true;
 }
 
 // --- CREAR USUARIO ---
-async function crearUsuario() {
+function crearUsuario() {
     const nombre = document.getElementById("nuevoUsuario").value.trim();
     if (!nombre) return;
 
-    const ok = await enviarIssue("Nuevo usuario", `nuevoUsuario=${nombre}`);
-    document.getElementById("msgUsuario").innerText = ok ? "Usuario creado" : "Error";
+    enviarIssue("Nuevo usuario", `nuevoUsuario=${nombre}`);
+    document.getElementById("msgUsuario").innerText = "Abriendo GitHub…";
 }
 
 // --- CREAR CHAPA ---
-async function crearChapa() {
+function crearChapa() {
     const nombre = document.getElementById("nuevaChapa").value.trim();
     if (!nombre) return;
 
-    const ok = await enviarIssue("Nueva chapa", `nuevaChapa=${nombre}`);
-    document.getElementById("msgChapa").innerText = ok ? "Chapa creada" : "Error";
+    enviarIssue("Nueva chapa", `nuevaChapa=${nombre}`);
+    document.getElementById("msgChapa").innerText = "Abriendo GitHub…";
 }
 
 // --- CREAR COMPRA ---
-async function crearCompra() {
+function crearCompra() {
     const alumno = document.getElementById("listaAlumnos").value;
     const chapa = document.getElementById("listaChapas").value;
 
-    const ok = await enviarIssue("Nueva compra", `alumno=${alumno}\nchapa=${chapa}`);
-    document.getElementById("msgCompra").innerText = ok ? "Compra añadida" : "Error";
+    enviarIssue("Nueva compra", `alumno=${alumno}\nchapa=${chapa}`);
+    document.getElementById("msgCompra").innerText = "Abriendo GitHub…";
 }
 
 cargarDatos();
