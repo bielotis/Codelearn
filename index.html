@@ -24,23 +24,43 @@
             max-width: 500px;
         }
 
-        /* SELECT NORMAL */
-        select {
+        /* SELECT PERSONALIZADO */
+        .select-wrapper {
+            position: relative;
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            box-sizing: border-box;
+        }
+
+        .select-display {
             background: #fff;
             color: #000;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            color: #000;
+            border-radius: 8px;
+            margin-top: 5px;
+            max-height: 150px; /* ALTURA DEL MENÚ */
+            overflow-y: auto;  /* SCROLL FORZADO */
+            display: none;     /* OCULTO POR DEFECTO */
+            z-index: 1000;
+        }
+
+        .select-options div {
+            padding: 10px;
             cursor: pointer;
         }
 
-        /* Esto fuerza scroll cuando el menú se abre */
-        select option {
-            padding: 10px;
+        .select-options div:hover {
+            background: #e0e0e0;
         }
 
         .tarjeta {
@@ -69,10 +89,11 @@
     <div class="container">
         <h2>🏅 Chapas por Alumno</h2>
 
-        <!-- SELECT NORMAL (solo 1 línea visible) -->
-        <select id="selectorAlumnos" size="1" onchange="mostrarChapas()">
-            <option value="">Selecciona un alumno...</option>
-        </select>
+        <!-- SELECT PERSONALIZADO -->
+        <div class="select-wrapper">
+            <div class="select-display">Selecciona un alumno...</div>
+            <div class="select-options" id="listaAlumnos"></div>
+        </div>
 
         <div id="lista"></div>
     </div>
@@ -96,9 +117,9 @@
 
                 const listaOrdenada = [...alumnos].sort((a, b) => a.localeCompare(b));
 
-                const selector = document.getElementById("selectorAlumnos");
+                const opciones = document.getElementById("listaAlumnos");
                 listaOrdenada.forEach(nombre => {
-                    selector.innerHTML += `<option value="${nombre}">${nombre}</option>`;
+                    opciones.innerHTML += `<div onclick="seleccionarAlumno('${nombre}')">${nombre}</div>`;
                 });
 
             } catch (err) {
@@ -106,12 +127,23 @@
             }
         };
 
-        function mostrarChapas() {
-            const alumno = document.getElementById("selectorAlumnos").value;
+        // Abrir/cerrar menú
+        document.querySelector(".select-display").onclick = function () {
+            const menu = document.querySelector(".select-options");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        };
+
+        // Seleccionar alumno
+        function seleccionarAlumno(nombre) {
+            document.querySelector(".select-display").textContent = nombre;
+            document.querySelector(".select-options").style.display = "none";
+            mostrarChapas(nombre);
+        }
+
+        // Mostrar chapas
+        function mostrarChapas(alumno) {
             const lista = document.getElementById("lista");
             lista.innerHTML = "";
-
-            if (!alumno) return;
 
             for (let i = 0; i < registrosXML.length; i++) {
                 let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
@@ -126,6 +158,13 @@
                 }
             }
         }
+
+        // Cerrar menú si haces clic fuera
+        document.addEventListener("click", function(e) {
+            if (!document.querySelector(".select-wrapper").contains(e.target)) {
+                document.querySelector(".select-options").style.display = "none";
+            }
+        });
     </script>
 
 </body>
