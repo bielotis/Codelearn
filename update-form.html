@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Añadir compra</title>
+<style>
+body { font-family: Arial; background:#1e1e2e; color:white; padding:40px; }
+input, select { width:100%; padding:10px; margin:10px 0; border-radius:8px; }
+button { padding:12px; background:#00c8ff; border:none; border-radius:8px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<h2>➕ Añadir compra</h2>
+
+<label>Nombre del alumno</label>
+<input id="alumno" placeholder="Ej: Nil Barbens">
+
+<label>Chapa</label>
+<input id="chapa" placeholder="Ej: robot">
+
+<button onclick="enviar()">Guardar en XML</button>
+
+<p id="msg"></p>
+
+<script>
+async function enviar() {
+    const alumno = document.getElementById("alumno").value.trim();
+    const chapa = document.getElementById("chapa").value.trim();
+
+    if (!alumno || !chapa) {
+        document.getElementById("msg").innerText = "Rellena todos los campos";
+        return;
+    }
+
+    const issue = {
+        title: `Nueva compra: ${alumno}`,
+        body: `alumno=${alumno}\nchapa=${chapa}`
+    };
+
+    const res = await fetch("https://api.github.com/repos/bielotis/Codelearn/issues", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(issue)
+    });
+
+    if (res.ok) {
+        document.getElementById("msg").innerText = "Compra enviada correctamente";
+    } else {
+        document.getElementById("msg").innerText = "Error al enviar";
+    }
+}
+</script>
+
+</body>
+</html>
