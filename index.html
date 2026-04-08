@@ -24,6 +24,7 @@
             max-width: 500px;
         }
 
+        /* Selector con scroll y 5 elementos visibles */
         select {
             width: 100%;
             padding: 12px;
@@ -32,6 +33,10 @@
             margin-bottom: 20px;
             font-size: 16px;
             box-sizing: border-box;
+        }
+
+        select[size] {
+            height: auto;
         }
 
         .tarjeta {
@@ -60,9 +65,8 @@
     <div class="container">
         <h2>🏅 Chapas por Alumno</h2>
 
-        <!-- Selector de alumnos -->
-        <select id="selectorAlumnos" onchange="mostrarChapas()">
-            <option value="">Selecciona un alumno...</option>
+        <!-- Selector con 5 elementos visibles -->
+        <select id="selectorAlumnos" size="5" onchange="mostrarChapas()">
         </select>
 
         <div id="lista"></div>
@@ -87,9 +91,12 @@
                     if (nombre) alumnos.add(nombre);
                 }
 
+                // Ordenar alfabéticamente
+                const listaOrdenada = [...alumnos].sort((a, b) => a.localeCompare(b));
+
                 // Rellenar el selector
                 const selector = document.getElementById("selectorAlumnos");
-                [...alumnos].sort().forEach(nombre => {
+                listaOrdenada.forEach(nombre => {
                     selector.innerHTML += `<option value="${nombre}">${nombre}</option>`;
                 });
 
