@@ -35,9 +35,10 @@
             box-sizing: border-box;
             background: #fff;
             color: #000;
+            cursor: pointer;
         }
 
-        /* El menú desplegable tendrá scroll si hay muchos alumnos */
+        /* Esto fuerza scroll cuando el menú se abre */
         select option {
             padding: 10px;
         }
@@ -69,7 +70,7 @@
         <h2>🏅 Chapas por Alumno</h2>
 
         <!-- SELECT NORMAL (solo 1 línea visible) -->
-        <select id="selectorAlumnos" onchange="mostrarChapas()">
+        <select id="selectorAlumnos" size="1" onchange="mostrarChapas()">
             <option value="">Selecciona un alumno...</option>
         </select>
 
@@ -79,7 +80,6 @@
     <script>
         let registrosXML = [];
 
-        // Cargar XML al iniciar
         window.onload = async function () {
             try {
                 const res = await fetch('datos.xml?cache=' + Date.now());
@@ -88,17 +88,14 @@
 
                 registrosXML = xml.getElementsByTagName("ComprasPorAlumno");
 
-                // Obtener lista única de alumnos
                 let alumnos = new Set();
                 for (let i = 0; i < registrosXML.length; i++) {
                     let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
                     if (nombre) alumnos.add(nombre);
                 }
 
-                // Ordenar alfabéticamente
                 const listaOrdenada = [...alumnos].sort((a, b) => a.localeCompare(b));
 
-                // Rellenar el selector
                 const selector = document.getElementById("selectorAlumnos");
                 listaOrdenada.forEach(nombre => {
                     selector.innerHTML += `<option value="${nombre}">${nombre}</option>`;
@@ -109,7 +106,6 @@
             }
         };
 
-        // Mostrar chapas del alumno seleccionado
         function mostrarChapas() {
             const alumno = document.getElementById("selectorAlumnos").value;
             const lista = document.getElementById("lista");
