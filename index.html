@@ -10,24 +10,30 @@
             background-color: #1e1e2e;
             color: #ffffff;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
+            justify-content: center;
+            padding-top: 40px;
         }
 
-        .container {
+        .layout {
+            display: flex;
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .col {
+            flex: 1;
             background: #2b2b3b;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 80%;
-            max-width: 500px;
         }
 
         /* SELECT PERSONALIZADO */
         .select-wrapper {
             position: relative;
             width: 100%;
+            margin-bottom: 20px;
         }
 
         .select-display {
@@ -48,9 +54,9 @@
             color: #000;
             border-radius: 8px;
             margin-top: 5px;
-            max-height: 150px; /* ALTURA DEL MENÚ */
-            overflow-y: auto;  /* SCROLL FORZADO */
-            display: none;     /* OCULTO POR DEFECTO */
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
             z-index: 1000;
         }
 
@@ -81,21 +87,46 @@
             color: #ffcc00;
             margin-top: 5px;
         }
+
+        .top-item {
+            background: #3f3f57;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #ffcc00;
+        }
+
+        .top-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h2>🏅 Chapas por Alumno</h2>
+    <div class="layout">
 
-        <!-- SELECT PERSONALIZADO -->
-        <div class="select-wrapper">
-            <div class="select-display">Selecciona un alumno...</div>
-            <div class="select-options" id="listaAlumnos"></div>
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col">
+            <h2>🏅 Chapas por Alumno</h2>
+
+            <div class="select-wrapper">
+                <div class="select-display">Selecciona un alumno...</div>
+                <div class="select-options" id="listaAlumnos"></div>
+            </div>
+
+            <div id="lista"></div>
         </div>
 
-        <div id="lista"></div>
+        <!-- COLUMNA DERECHA -->
+        <div class="col">
+            <h2 class="top-title">🔥 Top 3 más vendidas</h2>
+            <div id="top3"></div>
+        </div>
+
     </div>
 
     <script>
@@ -109,6 +140,7 @@
 
                 registrosXML = xml.getElementsByTagName("ComprasPorAlumno");
 
+                // --- LISTA DE ALUMNOS ---
                 let alumnos = new Set();
                 for (let i = 0; i < registrosXML.length; i++) {
                     let nombre = registrosXML[i].getElementsByTagName("nombre")[0]?.textContent;
@@ -121,6 +153,9 @@
                 listaOrdenada.forEach(nombre => {
                     opciones.innerHTML += `<div onclick="seleccionarAlumno('${nombre}')">${nombre}</div>`;
                 });
+
+                // --- TOP 3 CHAPAS ---
+                calcularTop3();
 
             } catch (err) {
                 console.error("Error cargando el XML:", err);
@@ -140,7 +175,7 @@
             mostrarChapas(nombre);
         }
 
-        // Mostrar chapas
+        // Mostrar chapas del alumno
         function mostrarChapas(alumno) {
             const lista = document.getElementById("lista");
             lista.innerHTML = "";
@@ -157,6 +192,32 @@
                         </div>`;
                 }
             }
+        }
+
+        // Calcular TOP 3
+        function calcularTop3() {
+            let contador = {};
+
+            for (let i = 0; i < registrosXML.length; i++) {
+                let chapa = registrosXML[i].getElementsByTagName("Nombre_x0020_chapa")[0]?.textContent;
+                if (!contador[chapa]) contador[chapa] = 0;
+                contador[chapa]++;
+            }
+
+            let top = Object.entries(contador)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 3);
+
+            const topDiv = document.getElementById("top3");
+            topDiv.innerHTML = "";
+
+            top.forEach(([chapa, cantidad], i) => {
+                topDiv.innerHTML += `
+                    <div class="top-item">
+                        <div><strong>${i + 1}. ${chapa}</strong></div>
+                        <div>Ventas: ${cantidad}</div>
+                    </div>`;
+            });
         }
 
         // Cerrar menú si haces clic fuera
