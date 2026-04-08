@@ -2,55 +2,52 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Añadir compra</title>
+<title>Gestión de Chapas</title>
 <style>
 body { font-family: Arial; background:#1e1e2e; color:white; padding:40px; }
+h2 { margin-top:40px; }
 input, select { width:100%; padding:10px; margin:10px 0; border-radius:8px; }
 button { padding:12px; background:#00c8ff; border:none; border-radius:8px; cursor:pointer; }
+.section { background:#2b2b3b; padding:20px; border-radius:12px; margin-bottom:30px; }
 </style>
 </head>
 <body>
 
-<h2>➕ Añadir compra</h2>
+<h1>⚙️ Gestión de Chapas</h1>
 
-<label>Nombre del alumno</label>
-<input id="alumno" placeholder="Ej: Nil Barbens">
+<!-- CREAR USUARIO -->
+<div class="section">
+    <h2>➕ Crear nuevo usuario</h2>
+    <input id="nuevoUsuario" placeholder="Nombre del alumno">
+    <button onclick="crearUsuario()">Crear usuario</button>
+    <p id="msgUsuario"></p>
+</div>
 
-<label>Chapa</label>
-<input id="chapa" placeholder="Ej: robot">
+<!-- CREAR CHAPA -->
+<div class="section">
+    <h2>🏅 Crear nueva chapa</h2>
+    <input id="nuevaChapa" placeholder="Nombre de la chapa">
+    <button onclick="crearChapa()">Crear chapa</button>
+    <p id="msgChapa"></p>
+</div>
 
-<button onclick="enviar()">Guardar en XML</button>
+<!-- AÑADIR COMPRA -->
+<div class="section">
+    <h2>🛒 Añadir compra</h2>
 
-<p id="msg"></p>
+    <label>Alumno</label>
+    <input id="buscarAlumno" placeholder="Buscar alumno..." oninput="filtrarAlumnos()">
+    <select id="listaAlumnos"></select>
 
-<script>
-async function enviar() {
-    const alumno = document.getElementById("alumno").value.trim();
-    const chapa = document.getElementById("chapa").value.trim();
+    <label>Chapa</label>
+    <input id="buscarChapa" placeholder="Buscar chapa..." oninput="filtrarChapas()">
+    <select id="listaChapas"></select>
 
-    if (!alumno || !chapa) {
-        document.getElementById("msg").innerText = "Rellena todos los campos";
-        return;
-    }
+    <button onclick="crearCompra()">Añadir compra</button>
+    <p id="msgCompra"></p>
+</div>
 
-    const issue = {
-        title: `Nueva compra: ${alumno}`,
-        body: `alumno=${alumno}\nchapa=${chapa}`
-    };
-
-    const res = await fetch("https://api.github.com/repos/bielotis/Codelearn/issues", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(issue)
-    });
-
-    if (res.ok) {
-        document.getElementById("msg").innerText = "Compra enviada correctamente";
-    } else {
-        document.getElementById("msg").innerText = "Error al enviar";
-    }
-}
-</script>
+<script src="form.js"></script>
 
 </body>
 </html>
