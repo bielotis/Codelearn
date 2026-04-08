@@ -1,0 +1,45 @@
+﻿{
+  "Info": {
+    "Class": "clsVCSIndex",
+    "Description": "Version Control System Index"
+  },
+  "Items": {
+    "MergeBuildDate": null,
+    "FullBuildDate": null,
+    "ExportDate": "2026-04-08T14:55:49.000Z",
+    "FullExportDate": "2026-04-08T14:55:49.000Z",
+    "OptionsHash": "1e652c7",
+    "LastMergedCommit": "",
+    "Components": {
+      "Forms": {
+        "añadir alumnos.bas": {
+          "FileHash": "3a1f777",
+          "ExportDate": "2026-04-08T14:55:48.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "a85b172"
+        },
+        "chapas.bas": {
+          "FileHash": "ede87ec",
+          "ExportDate": "2026-04-08T14:55:48.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "c74bc20"
+        },
+        "Formulario.bas": {
+          "FileHash": "7c263ac",
+          "ExportDate": "2026-04-08T14:55:48.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "013f34d"
+        }
+      },
+      "Modules": {
+        "Module1.bas": {
+          "FileHash": "91ddeb7",
+          "OtherHash": "7f0dd65",
+          "ExportDate": "2026-04-08T14:55:46.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "675a8da"
+        }
+      }
+    }
+  }
+}
