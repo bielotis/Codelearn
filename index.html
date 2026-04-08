@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Buscador de Chapas - CodeLearn</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-        .search-box { margin-bottom: 20px; }
-        input { padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc; }
-        .resultado { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 10px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #1e1e2e; color: #ffffff; display: flex; flex-direction: column; align-items: center; padding-top: 50px; }
+        .container { background: #2b2b3b; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 80%; max-width: 500px; }
+        input { width: 100%; padding: 12px; border: none; border-radius: 8px; margin-bottom: 20px; font-size: 16px; box-sizing: border-box; }
+        .tarjeta { background: #3f3f57; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #00c8ff; }
+        .nombre { font-weight: bold; font-size: 1.1em; color: #00c8ff; }
+        .chapa { color: #ffcc00; margin-top: 5px; }
     </style>
 </head>
 <body>
-    <h2>🔍 Buscador de Compras</h2>
-    <div class="search-box">
-        <input type="text" id="nombreInput" placeholder="Escribe el nombre del alumno..." onkeyup="buscar()">
+
+    <div class="container">
+        <h2>🔍 Buscador de Alumnos</h2>
+        <input type="text" id="cajaBusqueda" placeholder="Escribe el nombre del alumno..." onkeyup="filtrar()">
+        <div id="lista"></div>
     </div>
-    <div id="listaResultados"></div>
 
     <script>
-        async function buscar() {
-            const input = document.getElementById('nombreInput').value.toLowerCase();
-            const response = await fetch('datos.xml');
-            const text = await response.text();
-            const parser = new DOMParser();
-            const xml = parser.parseFromString(text, "application/xml");
-            
-            const registros = xml.getElementsByTagName("Comunidades"); // Cambia por el nombre de tu tabla
-            let html = '';
+        async function filtrar() {
+            const texto = document.getElementById('cajaBusqueda').value.toLowerCase();
+            const lista = document.getElementById('lista');
+            lista.innerHTML = "";
 
-            for (let i = 0; i < registros.length; i++) {
-                // Suponiendo que tus columnas se llaman 'Alumno' y 'Chapa'
-                let nombre = registros[i].getElementsByTagName("Nombre")[0].textContent;
-                let chapa = registros[i].getElementsByTagName("Chapa")[0].textContent;
+            if (texto.length < 2) return;
 
-                if (nombre.toLowerCase().includes(input) && input !== "") {
-                    html += `<div class="resultado"><b>${nombre}</b> compró la chapa: <span>${chapa}</span></div>`;
+            try {
+                const res = await fetch('datos.xml');
+                const xmlText = await res.text();
+                const xml = new DOMParser().parseFromString(xmlText, "application/xml");
+                const registros = xml.getElementsByTagName("Comunidades");
+
+                for (let i = 0; i < registros.length; i++) {
+                    // Extraemos los campos exactos de tu tabla
+                    let nombre = registros[i].getElementsByTagName("Nombre")[0]?.textContent || "";
+                    let chapa = registros[i].getElementsByTagName("Chapa")[0]?.textContent || "";
+
+                    if (nombre.toLowerCase().includes(texto)) {
+                        lista.innerHTML += `
+                            <div class="tarjeta">
+                                <div class="nombre">👤 ${nombre}</div>
+                                <div class="chapa">🏅 Chapa: ${chapa}</div>
+                            </div>`;
+                    }
                 }
+            } catch (err) {
+                console.error("Error cargando el XML:", err);
             }
-            document.getElementById('listaResultados').innerHTML = html;
         }
     </script>
 </body>
