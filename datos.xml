@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-09T16:24:35">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-13T16:23:01">
 <ComprasPorAlumno>
 <nombre>Nil Barbens</nombre>
 <Nombre_x0020_chapa>error</Nombre_x0020_chapa>
@@ -46,8 +46,8 @@
 <IDCompra>11</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
-<nombre>Eloi Vega</nombre>
-<Nombre_x0020_chapa>alternatiu</Nombre_x0020_chapa>
+<nombre>Matteo López</nombre>
+<Nombre_x0020_chapa>kawai</Nombre_x0020_chapa>
 <IDCompra>13</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
@@ -194,5 +194,145 @@
 <nombre>Biel Postico</nombre>
 <Nombre_x0020_chapa>holograma</Nombre_x0020_chapa>
 <IDCompra>43</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Matteo López</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>44</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Pau Asensio</nombre>
+<Nombre_x0020_chapa>ratoli</Nombre_x0020_chapa>
+<IDCompra>45</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Pau Asensio</nombre>
+<Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
+<IDCompra>46</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>pol sanchez</nombre>
+<Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
+<IDCompra>47</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>xavi segura</nombre>
+<Nombre_x0020_chapa>holograma</Nombre_x0020_chapa>
+<IDCompra>48</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>xavi segura</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>49</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Valeria</nombre>
+<Nombre_x0020_chapa>espasa</Nombre_x0020_chapa>
+<IDCompra>50</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Valeria</nombre>
+<Nombre_x0020_chapa>error</Nombre_x0020_chapa>
+<IDCompra>51</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Asier rodriguez</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>52</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Asier rodriguez</nombre>
+<Nombre_x0020_chapa>pantalla</Nombre_x0020_chapa>
+<IDCompra>53</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Eric Colomer</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>54</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Eric Colomer</nombre>
+<Nombre_x0020_chapa>pantalla</Nombre_x0020_chapa>
+<IDCompra>55</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Daniel Aguiler</nombre>
+<Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
+<IDCompra>56</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Daniel Aguiler</nombre>
+<Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
+<IDCompra>57</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Arcadi Solsona</nombre>
+<Nombre_x0020_chapa>holograma</Nombre_x0020_chapa>
+<IDCompra>58</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Arcadi Solsona</nombre>
+<Nombre_x0020_chapa>usb</Nombre_x0020_chapa>
+<IDCompra>59</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>nicolas naranjo</nombre>
+<Nombre_x0020_chapa>holograma</Nombre_x0020_chapa>
+<IDCompra>60</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Carla Piferrer</nombre>
+<Nombre_x0020_chapa>kawai</Nombre_x0020_chapa>
+<IDCompra>61</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Roger Torres</nombre>
+<Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
+<IDCompra>62</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Daniella Robles</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>63</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>nicolas naranjo</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>64</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Pablo Baena</nombre>
+<Nombre_x0020_chapa>ratoli</Nombre_x0020_chapa>
+<IDCompra>65</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Biel Escuté</nombre>
+<Nombre_x0020_chapa>cor</Nombre_x0020_chapa>
+<IDCompra>66</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>aran budallé</nombre>
+<Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
+<IDCompra>67</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Thais</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>68</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Thais</nombre>
+<Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
+<IDCompra>69</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Iker Gutiérrez</nombre>
+<Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
+<IDCompra>70</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Iker Gutiérrez</nombre>
+<Nombre_x0020_chapa>radiactiu</Nombre_x0020_chapa>
+<IDCompra>71</IDCompra>
 </ComprasPorAlumno>
 </dataroot>
