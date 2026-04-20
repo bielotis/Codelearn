@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-16T19:07:03">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2026-04-20T17:02:54">
 <ComprasPorAlumno>
 <nombre>Emma Badia</nombre>
 <Nombre_x0020_chapa>alternatiu</Nombre_x0020_chapa>
@@ -19,6 +19,11 @@
 <nombre>Alessandro Pastrana</nombre>
 <Nombre_x0020_chapa>heroi</Nombre_x0020_chapa>
 <IDCompra>80</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>nicolas naranjo</nombre>
+<Nombre_x0020_chapa>heroi</Nombre_x0020_chapa>
+<IDCompra>125</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
 <nombre>Pau Asensio</nombre>
@@ -101,6 +106,11 @@
 <IDCompra>105</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
+<nombre>xavi segura</nombre>
+<Nombre_x0020_chapa>espasa</Nombre_x0020_chapa>
+<IDCompra>122</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
 <nombre>Arnau Torres</nombre>
 <Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
 <IDCompra>36</IDCompra>
@@ -139,6 +149,11 @@
 <nombre>Roger Torres</nombre>
 <Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
 <IDCompra>115</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Daniel Aguiler</nombre>
+<Nombre_x0020_chapa>futur</Nombre_x0020_chapa>
+<IDCompra>124</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
 <nombre>Alex Valera</nombre>
@@ -226,6 +241,16 @@
 <IDCompra>99</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
+<nombre>	Matias chaves</nombre>
+<Nombre_x0020_chapa>pantalla</Nombre_x0020_chapa>
+<IDCompra>120</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>nicolas naranjo</nombre>
+<Nombre_x0020_chapa>pantalla</Nombre_x0020_chapa>
+<IDCompra>126</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
 <nombre>Valery Anghaly</nombre>
 <Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
 <IDCompra>18</IDCompra>
@@ -294,6 +319,11 @@
 <nombre>Marco Montenegro</nombre>
 <Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
 <IDCompra>113</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Daniel Aguiler</nombre>
+<Nombre_x0020_chapa>portatil</Nombre_x0020_chapa>
+<IDCompra>123</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
 <nombre>Nil Barbens</nombre>
@@ -461,6 +491,11 @@
 <IDCompra>112</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
+<nombre>Matteo López</nombre>
+<Nombre_x0020_chapa>robot</Nombre_x0020_chapa>
+<IDCompra>116</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
 <nombre>Biel Postico</nombre>
 <Nombre_x0020_chapa>holograma</Nombre_x0020_chapa>
 <IDCompra>43</IDCompra>
@@ -521,6 +556,11 @@
 <IDCompra>107</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
+<nombre>xavi segura</nombre>
+<Nombre_x0020_chapa>kawai</Nombre_x0020_chapa>
+<IDCompra>121</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
 <nombre>Joel Jimenez</nombre>
 <Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
 <IDCompra>11</IDCompra>
@@ -539,6 +579,11 @@
 <nombre>Biel Postico</nombre>
 <Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
 <IDCompra>103</IDCompra>
+</ComprasPorAlumno>
+<ComprasPorAlumno>
+<nombre>Matteo López</nombre>
+<Nombre_x0020_chapa>mathingerZ</Nombre_x0020_chapa>
+<IDCompra>117</IDCompra>
 </ComprasPorAlumno>
 <ComprasPorAlumno>
 <nombre>Emma Badia</nombre>
